@@ -1,2 +1,0 @@
-# FAX-MACHINE
-codingame
