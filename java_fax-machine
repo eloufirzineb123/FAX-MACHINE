@@ -1,0 +1,73 @@
+import java.util.*;
+import java.io.*;
+import java.math.*;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution {
+
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int W = in.nextInt();   System.err.println(W);
+        int H = in.nextInt();  System.err.println(H);
+        if (in.hasNextLine()) {
+            in.nextLine();
+        }
+        String T = in.nextLine();   System.err.println(T);
+
+        String Tsepar[] = T.split(" ");
+
+        int d =Tsepar.length;
+        int lecture [] = new int [d]; 
+
+        for( int i=0; i<d; i++){
+            lecture[i]= Integer.parseInt(Tsepar[i]);
+        }
+
+         Boolean choix = true;
+         int indice = 0;
+         int compteur = lecture[indice];
+          
+        if(compteur ==0) {
+            choix=false;
+            indice++; 
+            compteur+= lecture[indice];
+        }
+
+        for(int i=0; i< H; i++){
+            System.out.print("|");
+            for(int j=0;j<W;j++){
+          
+                    if(choix ){
+
+                        System.out.print("*");
+                        if(compteur == (W*i)+j+1){
+                            choix=false;
+                            indice++;
+                        if(indice!=d) compteur+= lecture[indice];
+                        }
+                    }
+                    else {
+                        System.out.print(" ");
+                        if(compteur == (W*i)+j+1){
+                            choix=true;
+                            indice++;
+                            if(indice!=d) compteur+= lecture[indice];
+
+                    }
+                    }
+
+
+
+
+                
+            } System.out.print("|\n");
+        }
+       
+      
+       
+
+        // Write an answer using System.out.println()
+        // To debug: System.err.println("Debug messages...");
